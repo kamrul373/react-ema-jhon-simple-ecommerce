@@ -13,3 +13,9 @@
     padding: 0 10px 0 25px;
     color: #2A414F
 }
+
+.calculation {
+    padding: 5px 10px;
+    margin-top: 10px;
+    border-top: 2px solid orange;
+}

@@ -19,5 +19,14 @@ const setCartDetailsLocally = (id) => {
     localStorage.setItem("shopping-cart", JSON.stringify(shoppingCart));
 
 }
+const getStoreCart = () => {
+    let shoppingCart = localStorage.getItem("shopping-cart");
 
-export { setCartDetailsLocally };
+    if (shoppingCart) {
+        shoppingCart = JSON.parse(shoppingCart);
+    }
+    return shoppingCart;
+}
+
+
+export { setCartDetailsLocally, getStoreCart };
