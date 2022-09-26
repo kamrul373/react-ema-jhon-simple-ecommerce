@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from 'react';
+import { setCartDetailsLocally } from '../../utilities/local';
 import Cart from '../Cart/Cart';
 import Product from '../Product/Product';
 import "./Shop.css";
@@ -13,6 +14,7 @@ const Shop = () => {
     const addToCart = (product) => {
         const newCart = [...cart, product];
         setCart(newCart);
+        setCartDetailsLocally(product.id);
     }
     return (
         <div className='shop-container'>
@@ -22,9 +24,7 @@ const Shop = () => {
                 }
             </div>
             <div className="cart-container">
-                <div className="cart-details">
-                    <Cart cart={cart}></Cart>
-                </div>
+                <Cart cart={cart}></Cart>
             </div>
         </div>
     );
