@@ -1,20 +1,28 @@
 import React, { useEffect, useState } from 'react';
-import { getStoreCart, setCartDetailsLocally } from '../../utilities/local';
+import { useLoaderData } from 'react-router';
+import { clearfullCart, getStoreCart, setCartDetailsLocally } from '../../utilities/local';
 import Cart from '../Cart/Cart';
 import Product from '../Product/Product';
 import "./Shop.css";
 const Shop = () => {
     // product state
-    const [products, setProducts] = useState([]);
+    const products = useLoaderData();
     // cart state
     const [cart, setCart] = useState([]);
     // fetcing products
-    useEffect(() => {
-        fetch("products.json")
-            .then(response => response.json())
-            .then(products => setProducts(products));
-    }, []);
+    // useEffect(() => {
+    //     fetch("products.json")
+    //         .then(response => response.json())
+    //         .then(products => setProducts(products));
+    // }, []);
     // state for localstorage
+
+    // clear cart
+    const clearCart = () => {
+        setCart([]);
+        clearfullCart()
+    }
+
     useEffect(() => {
         const storeCart = getStoreCart();
         const savedCart = [];
@@ -54,7 +62,7 @@ const Shop = () => {
                 }
             </div>
             <div className="cart-container">
-                <Cart cart={cart}></Cart>
+                <Cart clearCart={clearCart} cart={cart}></Cart>
             </div>
         </div>
     );

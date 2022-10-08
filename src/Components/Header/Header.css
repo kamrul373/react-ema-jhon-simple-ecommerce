@@ -23,6 +23,7 @@ li {
     transition: color .5s;
 }
 
-.navbar a:hover {
+.navbar a:hover,
+.navbar a.active {
     color: #FF9900
 }

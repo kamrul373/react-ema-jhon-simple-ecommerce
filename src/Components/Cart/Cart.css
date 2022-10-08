@@ -19,3 +19,12 @@
     margin-top: 10px;
     border-top: 2px solid orange;
 }
+
+.clearcart-btn {
+    width: 100%;
+    background-color: #FF3030;
+    color: #FFFFFF;
+    padding: 10px;
+    font-size: 18px;
+    cursor: pointer;
+}

@@ -1,6 +1,8 @@
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faTrashAlt } from '@fortawesome/free-solid-svg-icons';
 import React from 'react';
 import "./Cart.css";
-const Cart = ({ cart }) => {
+const Cart = ({ cart, clearCart }) => {
     let total = 0;
     let shipping = 0;
     let quantity = 0;
@@ -15,26 +17,32 @@ const Cart = ({ cart }) => {
     }
     let tax = (total * 0.1).toFixed(2);
     let grandTotal = total + shipping + parseFloat(tax);
-    console.log(productsName);
-    let i = 0
+    // //console.log(productsName);
+    // let i = 0
     return (
         <div className='cart'>
             <h2>Order Summary</h2>
             <div className="cart-details">
                 <p>Selected Items : {quantity}
                 </p>
-                {
+                {/* {
                     productsName.map(name => {
                         i++;
                         return <p key={name} style={{ fontSize: "14px", fontStyle: "italic" }}> <b>{i}</b> {name} </p>
 
                     })
-                }
+                } */}
                 <div className='calculation'>
                     <p>Total Price: ${total} </p>
                     <p>Total Shipping Charge: ${shipping} </p>
                     <p>Tax: ${tax} </p>
                     <h3>Grand Total: ${grandTotal.toFixed(2)}</h3>
+                </div>
+                <div className='clearcart'>
+                    <button
+                        onClick={clearCart}
+                        className='clearcart-btn'><span>Clear Cart</span> <FontAwesomeIcon icon={faTrashAlt}></FontAwesomeIcon>
+                    </button>
                 </div>
             </div>
         </div>
